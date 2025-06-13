@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IRIS Flower Classifier - Web App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: #f4f6f9;
+      --card-bg: #ffffff;
+      --primary-color: #1e40af;
+      --secondary-color: #3b82f6;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --border-color: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--main-bg);
+      color: var(--text-dark);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.06);
+      padding: 40px 60px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 32px;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: var(--text-light);
+      font-size: 16px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    input[type="number"] {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: #f9fafb;
+      color: var(--text-dark);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+      background-color: #ffffff;
+    }
+
+    button {
+      grid-column: span 2;
+      padding: 14px;
+      background-color: var(--primary-color);
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .result {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .image-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 60%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .image-container img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>IRIS Flower Classifier</h1>
+      <p>Enter the flower measurements below to identify the Iris species</p>
+    </header>
+
+    <form method="post">
+      {% csrf_token %}
+      <input type="number" name="sl" step="any" placeholder="Sepal Length (cm)" required />
+      <input type="number" name="sw" step="any" placeholder="Sepal Width (cm)" required />
+      <input type="number" name="pl" step="any" placeholder="Petal Length (cm)" required />
+      <input type="number" name="pw" step="any" placeholder="Petal Width (cm)" required />
+      <button type="submit">Classify Flower</button>
+    </form>
+
+    {% if total %}
+    <div class="result">
+      Prediction: <span style="color: var(--secondary-color)">{{ total }}</span>
+    </div>
+    {% endif %}
+
+    {% if total == "Iris-setosa" %}
+    <div class="image-container">
+      <img src="https://live.staticflickr.com/65535/51376589362_3614943f42_k.jpg" alt="Iris Setosa" />
+    </div>
+    {% elif total == "Iris-versicolor" %}
+    <div class="image-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Iris_versicolor_3.jpg" alt="Iris Versicolor" />
+    </div>
+    {% elif total == "Iris-virginica" %}
+    <div class="image-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Iris_virginica.jpg" alt="Iris Virginica" />
+    </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    © 2025 Iris Classifier Web App. Built for educational purposes.
+  </footer>
+
+</body>
+</html>
