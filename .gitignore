@@ -1,6 +1,6 @@
 echo "__pycache__/
 *.pyc
-*.pkl
+# *.pkl
 *.sqlite3
 *.log
 .env
