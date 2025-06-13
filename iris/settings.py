@@ -118,13 +118,17 @@ USE_TZ = True
 
 import os
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # required by Render
 
-# Optional for better handling:
+# ✅ Required for collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Optional: if you also have a local static folder (e.g. /static/)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
 
 
 # Default primary key field type
