@@ -9,8 +9,9 @@
 A modern, user-friendly web application built using **Django** and **scikit-learn** to predict the species of Iris flowers (Setosa, Versicolor, Virginica) based on input parameters: **sepal length**, **sepal width**, **petal length**, and **petal width**.
 
 ---
-##Project Link
-https://iris-prediction-axqe.onrender.com
+## 🔗 Live Demo
+
+🌐 **[View the Project Live](https://iris-prediction-axqe.onrender.com)**
 
 ---
 
