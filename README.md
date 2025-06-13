@@ -4,7 +4,8 @@
 [![Python](https://img.shields.io/badge/python-3.7--3.11-blue.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/framework-Django-green.svg)](https://www.djangoproject.com/)
 [![ML](https://img.shields.io/badge/ML-sklearn-orange.svg)](https://scikit-learn.org/)
-[![Deploy](https://img.shields.io/badge/deploy-Railway-informational.svg)](https://railway.app/)
+[![Deploy](https://img.shields.io/badge/deploy-Render-informational.svg)](https://render.com/)
+
 
 A modern, user-friendly web application built using **Django** and **scikit-learn** to predict the species of Iris flowers (Setosa, Versicolor, Virginica) based on input parameters: **sepal length**, **sepal width**, **petal length**, and **petal width**.
 
