@@ -73,3 +73,10 @@ pip install -r requirements.txt
 
 # Start the development server
 python manage.py runserver
+
+---
+## 📄 License
+
+This project is licensed under the [Apache License 2.0](LICENSE) © 2025 **Shrish Maruge**.  
+Feel free to use, modify, and distribute — with proper attribution.
+
